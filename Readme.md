@@ -13,4 +13,4 @@ tx1. count(name) first === count(name) second ? No anomaly : "Phantom read"
 
 ### Comparison transactions isolations concurrency anomallies in MySQL and PostgreSQL databases 
 
-![Result table]("./image.png")
+![Result table](./image.png)

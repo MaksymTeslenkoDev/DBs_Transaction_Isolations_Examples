@@ -1,0 +1,13 @@
+BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+SELECT COUNT(*) FROM phones WHERE amount>10;
+
+SELECT pg_sleep(5);
+
+UPDATE phones 
+SET amount = amount - 5 
+WHERE id = 1;
+
+SELECT COUNT(*) FROM phones WHERE amount>10;
+
+COMMIT;

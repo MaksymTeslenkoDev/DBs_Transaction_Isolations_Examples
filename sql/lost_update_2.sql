@@ -1,0 +1,15 @@
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+SET autocommit = 0;
+
+USE store;
+
+START TRANSACTION;
+
+SELECT amount FROM phones WHERE id=1;
+
+UPDATE phones 
+SET amount = amount - 5 
+WHERE id = 1;
+
+COMMIT;

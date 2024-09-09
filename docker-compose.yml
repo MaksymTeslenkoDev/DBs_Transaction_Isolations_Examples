@@ -1,0 +1,37 @@
+version: '3'
+services:
+  percona:
+    image: amd64/percona:8
+    container_name: percona_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: store
+      MYSQL_USER: marcus
+      MYSQL_PASSWORD: marcus
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - db_network
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: marcus
+      POSTGRES_PASSWORD: marcus
+      POSTGRES_DB: store
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - db_network
+
+volumes:
+  mysql_data:
+  postgres_data:
+networks:
+  db_network:
+    driver: bridge

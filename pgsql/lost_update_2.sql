@@ -1,0 +1,9 @@
+BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+SELECT amount FROM phones WHERE id=1;
+
+UPDATE phones 
+SET amount = amount - 5 
+WHERE id = 1;
+
+COMMIT;

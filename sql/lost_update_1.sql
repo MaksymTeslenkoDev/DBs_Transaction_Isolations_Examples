@@ -1,0 +1,19 @@
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+SET autocommit = 0;
+
+USE store;
+
+START TRANSACTION;
+
+SELECT COUNT(*) FROM phones WHERE amount>10;
+
+DO SLEEP(5);
+
+UPDATE phones 
+SET amount = amount - 5 
+WHERE id = 1;
+
+SELECT COUNT(*) FROM phones WHERE amount>10;
+
+COMMIT;

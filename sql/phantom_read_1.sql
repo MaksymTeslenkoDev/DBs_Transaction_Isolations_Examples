@@ -1,0 +1,17 @@
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+SET autocommit = 0;
+
+USE store;
+
+START TRANSACTION;
+
+-- SELECT name FROM phones WHERE amount BETWEEN 15 and 18;
+SELECT COUNT(name) FROM phones WHERE amount < 20;
+
+DO SLEEP(5);
+
+-- SELECT name FROM phones WHERE id BETWEEN 15 and 18;
+SELECT COUNT(name) FROM phones WHERE amount < 20;
+
+COMMIT;
